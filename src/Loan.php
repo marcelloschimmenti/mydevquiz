@@ -32,12 +32,12 @@ class Loan
         try {
             $this->setAmount($amount);
         } catch (InvalidAmountException $invalidAmountException) {
-            echo $invalidAmountException->getMessage();
+            var_dump($invalidAmountException->getMessage());
         }
         try {
             $this->setRating($rating);
         } catch (InvalidRatingException $invalidRatingException) {
-            echo $invalidRatingException->getMessage();
+            var_dump($invalidRatingException->getMessage());
         }
     }
 
@@ -59,6 +59,7 @@ class Loan
 
     /**
      * @param mixed $amount
+     * @throws InvalidAmountException
      */
     public function setAmount($amount)
     {
@@ -70,6 +71,7 @@ class Loan
 
     /**
      * @param mixed $rating
+     * @throws InvalidRatingException
      */
     public function setRating($rating)
     {

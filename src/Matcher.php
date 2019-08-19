@@ -4,8 +4,6 @@
 namespace Soisy;
 
 
-use phpDocumentor\Reflection\Types\This;
-
 class Matcher
 {
     /**
