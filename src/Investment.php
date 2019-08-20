@@ -28,16 +28,8 @@ class Investment
      */
     public function __construct($amount, $rating)
     {
-        try {
-            $this->setAmount($amount);
-        } catch (InvalidAmountException $invalidAmountException) {
-            var_dump($invalidAmountException->getMessage());
-        }
-        try {
-            $this->setRating($rating);
-        } catch (InvalidRatingException $invalidRatingException) {
-            var_dump($invalidRatingException->getMessage());
-        }
+        $this->setAmount($amount);
+        $this->setRating($rating);
     }
 
     /**
@@ -62,11 +54,10 @@ class Investment
      */
     public function setAmount($amount)
     {
-        if ($amount > 0) {
-            $this->amount = $amount;
-        } else {
+        if ($amount <= 0) {
             throw new InvalidAmountException('Amount should be greater than zero');
         }
+        $this->amount = $amount;
     }
 
     /**
@@ -75,11 +66,10 @@ class Investment
      */
     public function setRating($rating)
     {
-        if ($rating > 0) {
-            $this->rating = $rating;
-        } else {
+        if ($rating <= 0) {
             throw new InvalidRatingException('Rating should be greater than zero');
         }
+        $this->rating = $rating;
     }
 
 }

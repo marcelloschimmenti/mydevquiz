@@ -26,19 +26,13 @@ class Loan
      * Investment constructor.
      * @param $amount
      * @param $rating
+     * @throws InvalidAmountException
+     * @throws InvalidRatingException
      */
     public function __construct($amount, $rating)
     {
-        try {
-            $this->setAmount($amount);
-        } catch (InvalidAmountException $invalidAmountException) {
-            var_dump($invalidAmountException->getMessage());
-        }
-        try {
-            $this->setRating($rating);
-        } catch (InvalidRatingException $invalidRatingException) {
-            var_dump($invalidRatingException->getMessage());
-        }
+        $this->setAmount($amount);
+        $this->setRating($rating);
     }
 
     /**
@@ -80,7 +74,5 @@ class Loan
         }
         $this->rating = $rating;
     }
-
-
 
 }
